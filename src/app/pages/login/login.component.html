@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="container">
+    <div class="logo-menu-sec">
+            <div class="logo"><h1 itemprop="headline"><img src="assets/images/logo2.png" alt="logo.png" itemprop="image"></h1></div>
+    </div>
+    <form class="sign-form" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <input class="brd-rd3" type="text" placeholder="Email" formControlName="email">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <input class="brd-rd3" type="password" placeholder="Password" formControlName="password">
+            </div>
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <button class="red-bg brd-rd3" type="submit" (click)="submit()">Iniciar sesión</button>
+            </div>
+        </div>
+    </form>
+</div>

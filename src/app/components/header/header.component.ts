@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 
@@ -14,11 +15,14 @@ export class HeaderComponent implements OnInit {
   twitter = environment.twitter;
   googleMe = environment.googleMe;
   
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-
+  logOut() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('login', { replaceUrl: true, skipLocationChange: true });
+  }
 }

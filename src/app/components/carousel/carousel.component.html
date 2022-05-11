@@ -1,5 +1,18 @@
 <div *ngIf="images && images.length > 0" class="carousel-container">
+    <h1 itemprop="headline">Menús </h1>
     <img *ngFor="let image of images; let i = index" [src]="image.imageSrc" [alt]="image.imageAlt"
+        [ngClass]="{'image-active': selectedIndex === i}">
+    <div class="carousel-arrow-container">
+        <div class="carousel-arrow-left" (click)="prev()">
+            <i class="fas fa-chevron-left"></i>
+
+        </div>
+        <div class="carousel-arrow-right" (click)="next()">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    <h1 itemprop="headline">Menús Veganos</h1>
+    <img *ngFor="let image of imagesVegan; let i = index" [src]="image.imageSrc" [alt]="image.imageAlt"
         [ngClass]="{'image-active': selectedIndex === i}">
     <div class="carousel-arrow-container">
         <div class="carousel-arrow-left" (click)="prev()">

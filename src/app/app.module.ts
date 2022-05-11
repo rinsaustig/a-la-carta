@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,13 +12,13 @@ import { OrderComponent } from './components/order/order.component';
 import { PreFooterComponent } from './components/pre-footer/pre-footer.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CarouselModule } from './carousel/carousel.module';
+import { CarouselModule } from './components/carousel/carousel.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
+    HomeComponent,
     HeaderComponent,
     Section1Component,
     OrderComponent,
@@ -27,11 +28,13 @@ import { CarouselModule } from './carousel/carousel.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule,
-    CarouselModule
+    CarouselModule,
   ],
-  providers: [ HttpClient],
+  providers: [ HttpClient ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,66 +18,15 @@
                             <div class="col-md-8 col-sm-12 col-lg-8">
                                 <div class="restaurant-detail-wrapper">
                                     <div class="restaurant-detail-info">
-                                        <app-carousel [images]="images"></app-carousel>
-                                        <div class="restaurant-detail-thumb">
-                                            <ul class="restaurant-detail-img-carousel">
-                                                <!-- <li *ngFor="let recipe of recipes" ><img class="brd-rd3"
-                                                        src={{recipe.image}} alt={{recipe.title}}
-                                                        alt="restaurant-detail-big-img1-1.jpg" itemprop="image">
-                                                </li> -->
-                                            </ul>
-                                            <!-- <ul class="restaurant-detail-thumb-carousel">
-                                                 <li *ngFor="let recipe of recipes" ><img class="brd-rd3"
-                                                        src={{recipe.image}} alt={{recipe.title}}
-                                                        alt="restaurant-detail-big-img1-1.jpg" itemprop="image">
-                                                </li>
-                                            </ul> -->
-                                        </div>
+                                        <app-carousel 
+                                        [images]="images" 
+                                        [imagesVegan]="imagesVegan"
+                                        ></app-carousel>
                                         <div class="restaurant-detail-title">
                                             <h1 itemprop="headline">Nik Baker's</h1>
                                             <div class="info-meta">
                                                 <span>Greater Kailash (GK) 2</span>
                                                 <span><a href="#" title="" itemprop="url">Domino's</a></span>
-                                            </div>
-                                            <div class="rating-wrapper">
-                                                <a class="gradient-brd brd-rd2" href="#" title="" itemprop="url"><i
-                                                        class="fa fa-star"></i> Rate <i>4.0</i></a>
-                                                <div class="rate-share brd-rd5">
-                                                    <div class="rating-box-wrapper">
-                                                        <span>Rate</span>
-                                                        <div class="rating-box">
-                                                            <span class="brd-rd2 clr1 on"></span>
-                                                            <span class="brd-rd2 clr2 on"></span>
-                                                            <span class="brd-rd2 clr3 on"></span>
-                                                            <span class="brd-rd2 clr4 on"></span>
-                                                            <span class="brd-rd2 clr5 on"></span>
-                                                            <span class="brd-rd2 clr6 on"></span>
-                                                            <span class="brd-rd2 clr7 off"></span>
-                                                            <span class="brd-rd2 clr8 off"></span>
-                                                            <i>4.0</i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="share-wrapper">
-                                                        <div class="fb-share">
-                                                            <label class="switch">
-                                                                <input type="checkbox">
-                                                                <span class="switch-slider brd-rd30"></span>
-                                                            </label>
-                                                            <a class="facebook brd-rd2" href="#" title=""
-                                                                itemprop="url"><i class="fa fa-facebook-square"></i>
-                                                                Share on Facebook</a>
-                                                        </div>
-                                                        <div class="fb-share">
-                                                            <label class="switch">
-                                                                <input type="checkbox">
-                                                                <span class="switch-slider brd-rd30"></span>
-                                                            </label>
-                                                            <a class="twitter brd-rd2" href="#" title=""
-                                                                itemprop="url"><i class="fa fa-twitter"></i> Share
-                                                                on Twitter</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <span class="price">$85.00</span>
                                             <div class="qty-wrap">

@@ -13,6 +13,7 @@ interface carouselImage {
 export class CarouselComponent implements OnInit {
 
   @Input() images: carouselImage[] = [];
+  @Input() imagesVegan: carouselImage[] = [];
   @Input() indicators = true;
   selectedIndex = 0;
 
