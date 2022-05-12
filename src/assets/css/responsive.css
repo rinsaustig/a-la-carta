@@ -762,12 +762,11 @@
 	.toggle-item > h4{display: flex;}
 	.toggle-item > h4 i{display: inline-table; margin-right: 10px;}
 	.blog-detail-info > .post-meta {
-		float: left;
+		width: 100%;
 	}
 	.blog-detail-wrapper .blog-detail-info .post-meta {
 	    text-align: right;
 	    width: auto;
-	    float: right;
 	}
 	.blog-detail-wrapper .blog-detail-info .post-meta > span {
 	    font-size: 12px;

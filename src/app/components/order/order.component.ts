@@ -18,18 +18,18 @@ export class OrderComponent implements OnInit {
   
   ngOnInit(): void {
 
-    this.orderService.getSpoonacular().subscribe( res => {
-      this.recipes = Array.from(res.results);
-      console.log('recipes', this.recipes)
-      this.getImages()
+    // this.orderService.getSpoonacular().subscribe( res => {
+    //   this.recipes = Array.from(res.results);
+    //   console.log('recipes', this.recipes)
+    //   this.getImages()
 
-    })
-    this.orderService.getSpoonacularVegan().subscribe( res => {
-      this.recipesVegan = Array.from(res.results);
-      console.log('vegan', this.recipesVegan)
-      this.getVeganImages()
+    // })
+    // this.orderService.getSpoonacularVegan().subscribe( res => {
+    //   this.recipesVegan = Array.from(res.results);
+    //   console.log('vegan', this.recipesVegan)
+    //   this.getVeganImages()
 
-    })
+    // })
     
 }
 

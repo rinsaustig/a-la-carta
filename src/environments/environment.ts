@@ -7,9 +7,11 @@ export const environment = {
   linkedin: 'https://www.linkedin.com/in/rodrigo-gomez-insausti-0a867b48/', 
   twitter: 'https://twitter.com/RodrigoGmez7',
   googleMe: 'https://www.google.com/search?q=Rodrigo+G%C3%B3mez+Insausti&rlz=1C1UUXU_esAR959AR959&oq=Rodrigo+G%C3%B3mez+Insausti&aqs=chrome..69i57j69i61l3.5580j0j15&sourceid=chrome&ie=UTF-8',
-  spoonacular: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&maxFat=25&number=100&maxReadyTime=20&sort=healthiness',
-  spoonacularVegan: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&maxFat=25&number=100&maxReadyTime=20&sort=healthiness&diet=vegan',
-  login: 'http://challenge-react.alkemy.org/'
+  spoonacular: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&number=100&maxReadyTime=20&sort=healthiness&sortDirection=desc&diet=whole30&addRecipeInformation=true&addRecipeNutrition=true',
+  spoonacularVegan: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&number=100&maxReadyTime=20&sort=healthiness&diet=vegan&sortDirection=desc&addRecipeInformation=true&addRecipeNutrition=true',
+  login: 'http://challenge-react.alkemy.org/', 
+  gitHub: 'https://github.com/rinsaustig?tab=repositories',
+  gmail: 'mailto:rodrigogomezinsausti@gmail.com'
 }
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,0 +1,13 @@
+.container-detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.food-price {
+    display: flex;
+    align-items: end;
+    font-size: 2em;
+    margin-bottom: 0.25em;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-login',
@@ -27,9 +28,17 @@ export class LoginComponent implements OnInit {
 
       }
 
-    console.log(body)
+    if(this.form.valid) {
+      this.loginService.logIn(body)
+    } else { 
+      swal({
+        title: "Incorrecto",
+        text: "Debes ingresar un correo y una contraseña para continuar",
+        icon: "warning",
+        dangerMode: true,
+      })
 
-    this.loginService.logIn(body)
+    }
     
   }
 

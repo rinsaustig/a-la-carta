@@ -1,9 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-interface carouselImage {
-  imageSrc: string; 
-  imageAlt: string;
-}
+import { OrderModel } from './../../models/order.model';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -12,31 +8,56 @@ interface carouselImage {
 })
 export class CarouselComponent implements OnInit {
 
-  @Input() images: carouselImage[] = [];
-  @Input() imagesVegan: carouselImage[] = [];
+  @Input() recipes: OrderModel[] = [];
+  @Input() recipesVegan: OrderModel[] = [];
   @Input() indicators = true;
+  @Output() order: OrderModel[] = [];
   selectedIndex = 0;
+  selectedIndexVeg = 0;
+  fullRecipes = true;
+  count = 0;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log (this.images);
   }
 
   prev(){
     if(this.selectedIndex > 0){
       this.selectedIndex--;
     } else {
-      this.selectedIndex = this.images.length - 1;
+      this.selectedIndex = this.recipes.length - 1;
+    }
+  }
+  preVeg(){
+    if(this.selectedIndexVeg > 0){
+      this.selectedIndexVeg--;
+    } else {
+      this.selectedIndexVeg = this.recipesVegan.length - 1;
     }
   }
 
   next(){
-    if(this.selectedIndex < this.images.length - 1){
+    if(this.selectedIndex < this.recipes.length - 1){
       this.selectedIndex++;
     } else {
       this.selectedIndex = 0;
     }
+  }
+  nextVeg(){
+    if(this.selectedIndexVeg < this.recipesVegan.length - 1){
+      this.selectedIndexVeg++;
+    } else {
+      this.selectedIndexVeg = 0;
+    }
+  }
+
+  addToOrder() {
+    console.log('order',this.order)
+    this.count++;
+    if(this.count < 1){
+      this.order.push(this.recipes[this.selectedIndex])
+    } 
   }
 
 }

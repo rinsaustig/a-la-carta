@@ -16,43 +16,13 @@
                     <div class="sec-box">
                         <div class="sec-wrapper">
                             <div class="col-md-8 col-sm-12 col-lg-8">
-                                <div class="restaurant-detail-wrapper">
-                                    <div class="restaurant-detail-info">
-                                        <app-carousel 
-                                        [images]="images" 
-                                        [imagesVegan]="imagesVegan"
-                                        ></app-carousel>
-                                        <div class="restaurant-detail-title">
-                                            <h1 itemprop="headline">Nik Baker's</h1>
-                                            <div class="info-meta">
-                                                <span>Greater Kailash (GK) 2</span>
-                                                <span><a href="#" title="" itemprop="url">Domino's</a></span>
-                                            </div>
-                                            <span class="price">$85.00</span>
-                                            <div class="qty-wrap">
-                                                <input class="qty" type="text" value="1">
-                                            </div>
-                                            <p itemprop="description">Rennie White, an advertising manager in New
-                                                York City, leaves for work 10 minutes later these days because she
-                                                no longer has to wait in line for coffee at a Dunkin' Donuts outlet.
-                                                Instead, she preorders coffee by sending a text message from her
-                                                cellphone on the way to work. "I can get off the train and get the
-                                                coffee and not break my flow," Ms. White says</p>
-                                            <p itemprop="description">Similique sunt in culpa qui officia deserunt
-                                                mollitia animi, id est laborum et dolorum fuga. uni harum quidem sed
-                                                rerum facilis est et expedita distinctio. Nam libero tempore, cum
-                                                soluta nobis est eligendi optio cumque nihilares impedit quo
-                                                repellendus eligendi optio cumque nihilare impedit quo minus id quod
-                                                maxime.</p>
-                                            <a class="brd-rd3" href="#" title="" itemprop="url">Order Now</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <app-carousel [recipes]="recipes"></app-carousel>
+                                <app-carousel [recipesVegan]="recipesVegan"></app-carousel>
                             </div>
                             <div class="col-md-4 col-sm-12 col-lg-4">
                                 <div class="order-wrapper">
                                     <div class="order-inner gradient-brd">
-                                        <h4 itemprop="headline">Your Order</h4>
+                                        <h4 itemprop="headline">Tu pedido</h4>
                                         <div class="order-list-wrapper">
                                             <ul class="order-list-inner">
                                                 <li>
@@ -134,11 +104,10 @@
                                             <ul class="order-method brd-rd2 red-bg">
                                                 <li><span>Total</span> <span class="price">$340</span></li>
                                                 <li><span class="radio-box"><input type="radio" name="method"
-                                                            id="pay1-1"><label for="pay1-1"><i
-                                                                class="fa fa-money"></i> Cash</label></span> <span
-                                                        class="radio-box"><input type="radio" name="method"
-                                                            id="pay1-2"><label for="pay1-2"><i
-                                                                class="fa fa-credit-card-alt"></i>
+                                                            id="pay1-1"><label for="pay1-1"><i class="fa fa-money"></i>
+                                                            Cash</label></span> <span class="radio-box"><input
+                                                            type="radio" name="method" id="pay1-2"><label
+                                                            for="pay1-2"><i class="fa fa-credit-card-alt"></i>
                                                             Card</label></span></li>
                                                 <li><a class="brd-rd2" href="#" title="" itemprop="url">CONFIRM
                                                         ORDER</a></li>

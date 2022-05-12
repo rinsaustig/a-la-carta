@@ -19,17 +19,19 @@
     display: block;
     width: 100%;
     height: 400px;
-    
+
 }
+
+
 
 .carousel-arrow-container {
     position: absolute;
-    right: 0;
+    right: 25px;
     left: 0;
-    bottom: 0;
+    bottom: 15px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 0;
     margin-bottom: 1 rem;
     font-size: 3rem;
@@ -38,5 +40,79 @@
 
 .carousel-arrow-container i:hover {
     cursor: pointer;
-    color: #000;
+    color: #fff;
+}
+
+.fade-in-image {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+}
+
+
+.container-detail  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.food-price {
+    display: flex;
+    align-items: end;
+    font-size: 2em;
+    margin-bottom: 0.25em;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

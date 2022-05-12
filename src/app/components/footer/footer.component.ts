@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
+  gitHub = environment.gitHub;
+  linkedIn = environment.linkedin;
+  twitter = environment.twitter;
+  gmail = environment.gmail;
+  googleMe = environment.googleMe;
   constructor() { }
 
   ngOnInit(): void {

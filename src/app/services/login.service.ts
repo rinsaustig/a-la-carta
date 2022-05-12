@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Subscription} from 'rxjs';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,12 @@ export class LoginService {
       localStorage.setItem('token', JSON.stringify(res));
       this.router.navigateByUrl('', {replaceUrl: true})
     }, error =>{
-      console.log(error);
-      alert(error.error.error)
+      swal({
+        title: "Incorrecto",
+        text: "Usuario y/o contraseña incorrectos",
+        icon: "warning",
+        dangerMode: true,
+      })
     });
   }
 
