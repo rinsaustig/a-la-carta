@@ -1,50 +1,65 @@
 <div *ngIf="recipes && recipes.length > 0" class="carousel-container">
-    <div class="restaurant-detail-title">
-        <h1 itemprop="headline">Menús </h1>
+  ============{{ countTotal$ | async }}====================
+  <div class="restaurant-detail-title">
+    <h1 itemprop="headline">Menús</h1>
+  </div>
+  <img
+    *ngFor="let image of recipes; let i = index"
+    [src]="image.image"
+    [alt]="image.imageType"
+    [ngClass]="{ 'image-active': selectedIndex === i }"
+    class="fade-in-image"
+  />
+  <div class="carousel-arrow-container">
+    <div class="carousel-arrow-left" (click)="prev()">
+      <i class="fas fa-chevron-left"></i>
     </div>
-    <img *ngFor="let image of recipes; let i = index" [src]="image.image" [alt]="image.imageType"
-        [ngClass]="{'image-active': selectedIndex === i}" class="fade-in-image">
-    <div class="carousel-arrow-container">
-        <div class="carousel-arrow-left" (click)="prev()">
-            <i class="fas fa-chevron-left"></i>
-
-        </div>
-        <div class="carousel-arrow-right" (click)="next()">
-            <i class="fas fa-chevron-right"></i>
-        </div>
+    <div class="carousel-arrow-right" (click)="next()">
+      <i class="fas fa-chevron-right"></i>
     </div>
-    <div class="restaurant-detail-wrapper">
-        <div class="restaurant-detail-info">
-            <div class="container-detail">
-                <h1>{{recipes[selectedIndex].title}}</h1>
-                <span class="price food-price">${{recipes[selectedIndex].pricePerServing}}</span>
-            </div>
-            <div class="restaurant-detail-body" (click)="addToOrder()">
-                <a class="brd-rd3" (click)="addToOrder()">Agregar</a>
-            </div>
-        </div>
+  </div>
+  <div class="restaurant-detail-wrapper">
+    <div class="restaurant-detail-info">
+      <div class="container-detail">
+        <h1>{{ recipes[selectedIndex].title }}</h1>
+        <span class="price food-price"
+          >${{ recipes[selectedIndex].pricePerServing }}</span
+        >
+      </div>
+      <div class="restaurant-detail-body">
+        <a class="brd-rd3 a-button" (click)="addToOrder()">Agregar</a>
+      </div>
     </div>
+  </div>
 </div>
 <div *ngIf="recipesVegan && recipesVegan.length > 0" class="carousel-container">
-    <div class="restaurant-detail-title">
-        <h1 itemprop="headline">Menús Veganos</h1>
+  <div class="restaurant-detail-title">
+    <h1 itemprop="headline">Menús Veganos</h1>
+  </div>
+  <img
+    *ngFor="let image of recipesVegan; let i = index"
+    [src]="image.image"
+    [alt]="image.imageType"
+    [ngClass]="{ 'image-active': selectedIndexVeg === i }"
+    class="fade-in-image"
+  />
+  <div class="carousel-arrow-container">
+    <div class="carousel-arrow-left" (click)="preVeg()">
+      <i class="fas fa-chevron-left"></i>
     </div>
-    <img *ngFor="let image of recipesVegan; let i = index" [src]="image.image" [alt]="image.imageType"
-        [ngClass]="{'image-active': selectedIndexVeg === i}" class="fade-in-image">
-    <div class="carousel-arrow-container">
-        <div class="carousel-arrow-left" (click)="preVeg()">
-            <i class="fas fa-chevron-left"></i>
-
-        </div>
-        <div class="carousel-arrow-right" (click)="nextVeg()">
-            <i class="fas fa-chevron-right"></i>
-        </div>
+    <div class="carousel-arrow-right" (click)="nextVeg()">
+      <i class="fas fa-chevron-right"></i>
     </div>
-        <div class="container-detail">
-            <h1 ng-model="selectedIndexVeg">{{recipesVegan[selectedIndexVeg].title}}</h1>
-            <span class="price food-price">${{recipesVegan[selectedIndexVeg].pricePerServing}}</span>
-        </div>
-        <div class="restaurant-detail-body">
-            <a class="brd-rd3" href="#" title="" itemprop="url">Agregar</a>
-        </div>
+  </div>
+  <div class="container-detail">
+    <h1 ng-model="selectedIndexVeg">
+      {{ recipesVegan[selectedIndexVeg].title }}
+    </h1>
+    <span class="price food-price"
+      >${{ recipesVegan[selectedIndexVeg].pricePerServing }}</span
+    >
+  </div>
+  <div class="restaurant-detail-body">
+    <a class="brd-rd3" href="#" title="" itemprop="url">Agregar</a>
+  </div>
 </div>

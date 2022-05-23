@@ -52,7 +52,7 @@
 }
 
 
-.container-detail  {
+.container-detail {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -62,9 +62,14 @@
 
 .food-price {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     font-size: 2em;
     margin-bottom: 0.25em;
+}
+
+.a-button {
+    z-index: 1;
+    cursor: pointer;
 }
 
 @keyframes fadeIn {
