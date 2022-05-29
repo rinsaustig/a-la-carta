@@ -22,6 +22,7 @@ import {
 } from 'src/app/components/carousel/store/carousel.reducer';
 import { AddedComponent } from './components/added/added.component';
 import { SearchComponent } from './components/search/search.component';
+import { StepsComponent } from './components/steps/steps.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SearchComponent } from './components/search/search.component';
     FooterComponent,
     AddedComponent,
     SearchComponent,
+    StepsComponent,
   ],
   imports: [
     BrowserModule,

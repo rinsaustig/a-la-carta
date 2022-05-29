@@ -5,29 +5,20 @@
         <div class="col-md-12">
           <div class="sec-box">
             <div class="sec-wrapper">
-              <div class="bread-crumbs-wrapper">
-                <app-search (recipes)="getRecipes($event)"></app-search>
-              </div>
+              <app-search (recipes)="getRecipes($event)"></app-search>
               <div class="col-md-8 col-sm-12 col-lg-8">
+                <app-steps *ngIf="recipes.length == 0"></app-steps>
                 <app-carousel [recipes]="recipes"></app-carousel>
               </div>
               <div class="col-md-4 col-sm-12 col-lg-4">
                 <app-added></app-added>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="sec-box">
-            <div class="sec-wrapper">
-              <div class="bread-crumbs-wrapper">
-                <app-search [vegan]="true"></app-search>
-              </div>
+              <app-search
+                [vegan]="true"
+                (recipesVegan)="getRecipesVegan($event)"
+              ></app-search>
               <div class="col-md-8 col-sm-12 col-lg-8">
+                <app-steps *ngIf="recipes.length == 0"></app-steps>
                 <app-carousel [recipesVegan]="recipesVegan"></app-carousel>
               </div>
               <div class="col-md-4 col-sm-12 col-lg-4">

@@ -11,7 +11,7 @@ export const environment = {
   spoonacular:
     'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&addRecipeInformation=true&query=',
   spoonacularVegan:
-    'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&number=100&maxReadyTime=20&sort=healthiness&diet=vegan&sortDirection=desc&addRecipeInformation=true&addRecipeNutrition=true',
+    'https://api.spoonacular.com/recipes/complexSearch?apiKey=5b668167216544ce9c42ead300f51f70&diet=vegan&addRecipeInformation=true&query=',
   login: 'http://challenge-react.alkemy.org/',
   gitHub: 'https://github.com/rinsaustig?tab=repositories',
   gmail: 'mailto:rodrigogomezinsausti@gmail.com',

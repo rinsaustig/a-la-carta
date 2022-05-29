@@ -10,7 +10,7 @@ export class OrderService {
   getSpoonacular(query: string): Observable<any> {
     return this.http.get<any>(environment.spoonacular + query);
   }
-  getSpoonacularVegan(): Observable<any> {
-    return this.http.get<any>(environment.spoonacularVegan);
+  getSpoonacularVegan(query: string): Observable<any> {
+    return this.http.get<any>(environment.spoonacularVegan + query);
   }
 }

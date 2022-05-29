@@ -1,6 +1,7 @@
 import { OrderService } from 'src/app/services/order.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OrderModel } from 'src/app/models/order.model';
+import { fromEvent, scan, debounce, interval } from 'rxjs';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,9 @@ import { OrderModel } from 'src/app/models/order.model';
 })
 export class SearchComponent implements OnInit {
   @Output() recipes = new EventEmitter();
+  @Output() recipesVegan = new EventEmitter();
   query: string = '';
+  characters: number = 0;
   @Input() vegan: boolean = false;
 
   constructor(private orderService: OrderService) {}
@@ -17,19 +20,34 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   onSearch(event: any) {
-    return (this.query = event.target.value);
+    this.query = event.target.value;
+    const keyUp = fromEvent(document, 'keyup');
+    const result = keyUp.pipe(
+      scan((i) => ++i, 1),
+      debounce((i) => interval(200 * i))
+    );
+    result.subscribe((x) => (this.characters = x));
   }
 
   submit() {
-    this.orderService.getSpoonacular(this.query).subscribe((res) => {
-      this.recipes.emit(Array.from(res.results));
-      console.log('recipes', this.query);
-    });
-    // this.orderService.getSpoonacularVegan().subscribe((res) => {
-    //   this.recipesVegan = Array.from(res.results);
-    //   console.log('vegan', this.recipesVegan);
-    //   this.getVeganImages();
-    // });
-    // });
+    if (this.characters > 2) {
+      if (this.vegan) {
+        this.orderService.getSpoonacularVegan(this.query).subscribe((res) => {
+          this.recipesVegan.emit(Array.from(res.results));
+        });
+      } else {
+        this.orderService.getSpoonacular(this.query).subscribe((res) => {
+          let recipes = Array.from(res.results);
+          this.recipes.emit(recipes);
+        });
+      }
+    } else {
+      swal({
+        title: 'Incorrecto',
+        text: 'Debes ingresar al menos 2 caracteres',
+        icon: 'warning',
+        dangerMode: true,
+      });
+    }
   }
 }

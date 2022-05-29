@@ -59,11 +59,7 @@ export class AddedComponent implements OnInit {
     } else {
       this.ordersStore.countLessNotVeg();
     }
-    console.log(index, this.added[index].vegan);
     this.store.dispatch(decrementTotal());
     this.ordersStore.removeFromOrder(index);
-    this.ordersStore.state$.subscribe((res) => {
-      console.log('remorder2', res.orders);
-    });
   }
 }

@@ -182,7 +182,7 @@ section {
   margin: 0 auto;
   max-width: 1300px;
   width: 100%;
-  padding: 50px 45px;
+  padding: 50px 0px 0px 0px;
   background-color: #fff;
   float: left;
 }
@@ -3602,6 +3602,7 @@ footer {
   margin-top: 0;
   font-weight: bold;
 }
+
 .restaurant-detail-body>a {
   display: inline-block;
   padding: 10px;
@@ -6217,7 +6218,6 @@ input:checked+.switch-slider:before {
 /*===== Search Not Found =====*/
 .search-found {
   float: left;
-  margin-bottom: 70px;
   width: 100%;
 }
 

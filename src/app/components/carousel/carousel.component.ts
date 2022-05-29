@@ -37,7 +37,6 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.recipes.filter((d) => d.vegan === false);
-    console.log(this.recipes);
   }
 
   prev() {
@@ -72,13 +71,11 @@ export class CarouselComponent implements OnInit {
 
   addToOrder() {
     this.orderStore.state$.subscribe((res) => (this.count = res.countNotVeg));
-    console.log('notveg', this.count);
     if (this.count < 2) {
       this.orderStore.countNotVeg();
       this.orderStore.addToOrder(this.recipes[this.selectedIndex]);
       this.orderStore.state$.subscribe((res) => (this.added = res.orders));
       this.store.dispatch(incrementTotal());
-      console.log(this.added);
     } else if (this.added.length < 4) {
       swal({
         title: 'Incorrecto',
@@ -97,7 +94,6 @@ export class CarouselComponent implements OnInit {
   }
   addToOrderVegan() {
     this.orderStore.state$.subscribe((res) => (this.countVegan = res.countVeg));
-    console.log('veg', this.countVegan);
     if (this.countVegan < 2) {
       this.orderStore.countVeg();
       this.orderStore.addToOrder(this.recipesVegan[this.selectedIndexVeg]);
