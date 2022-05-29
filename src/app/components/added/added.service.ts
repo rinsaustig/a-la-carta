@@ -28,6 +28,6 @@ export class AddedService {
     added.forEach((element) => {
       total += element.readyInMinutes;
     });
-    return total / added.length;
+    return Math.ceil(total / added.length);
   }
 }
