@@ -28,6 +28,6 @@ export class AddedService {
     added.forEach((element) => {
       total += element.readyInMinutes;
     });
-    return total;
+    return total / added.length;
   }
 }

@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
     const keyUp = fromEvent(document, 'keyup');
     const result = keyUp.pipe(
       scan((i) => ++i, 1),
-      debounce((i) => interval(200 * i))
+      debounce((i) => interval(100 * i))
     );
     result.subscribe((x) => (this.characters = x));
   }
