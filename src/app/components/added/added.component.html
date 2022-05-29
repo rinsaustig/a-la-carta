@@ -1,0 +1,86 @@
+<div class="order-wrapper">
+  <div class="order-inner gradient-brd">
+    <h4 itemprop="headline">Tu pedido</h4>
+    <div class="order-list-wrapper">
+      <ul class="order-list-inner">
+        <li *ngIf="added.length == 0">
+          <div class="dish-name">
+            <h6 itemprop="headline">No hay platos agregados!</h6>
+          </div>
+          <div class="dish-ingredients">
+            <span class="check-box"
+              ><label
+                ><span
+                  >Seleccione de las opciones los menús deseados</span
+                ></label
+              ></span
+            >
+          </div>
+        </li>
+      </ul>
+      <ul *ngIf="added.length > 0" class="order-list-inner">
+        <li *ngFor="let menu of added; index as i">
+          <div class="dish-name">
+            <i>{{ i + 1 }}</i>
+            <h6 itemprop="headline">{{ menu.title }}</h6>
+            <span class="price">${{ menu.pricePerServing }}</span>
+          </div>
+          <div class="dish-ingredients">
+            <img src="{{ menu.image }}" alt="imagen no disponible" />
+            <span class="check-box"
+              ><label
+                ><span class="delete" (click)="openDetails(i)"
+                  >Detalles del plato</span
+                ></label
+              ></span
+            >
+            <span class="check-box"
+              ><label
+                ><span class="red-clr delete" (click)="removeFromOrder(i)"
+                  >Eliminar plato</span
+                ></label
+              ></span
+            >
+          </div>
+        </li>
+      </ul>
+      <ul class="order-total" *ngIf="added.length > 0">
+        <li>
+          <span>Puntos de salud</span> <i>{{ healthPoints }}</i>
+        </li>
+        <li>
+          <span>Tiempo</span> <i>{{ readyInMinutes }} mins</i>
+        </li>
+        <li>
+          <span>SubTotal</span> <i>${{ semiTotal }}</i>
+        </li>
+        <li><span>Delivery</span> <i>$70</i></li>
+        <li><span>Impuestos </span> <i>$12</i></li>
+      </ul>
+      <ul class="order-method brd-rd2 red-bg" *ngIf="added.length > 0">
+        <li>
+          <span>Total</span>
+          <span class="price">${{ semiTotal + 70 + 12 }}</span>
+        </li>
+        <li class="pay-method">
+          <span class="radio-box"
+            ><input type="radio" name="method" id="pay1-1" /><label for="pay1-1"
+              ><i class="fa fa-money"></i> Efectivo</label
+            ></span
+          >
+          <span class="radio-box"
+            ><input type="radio" name="method" id="pay1-2" /><label for="pay1-2"
+              ><i class="fa fa-credit-card-alt"></i> Tarjeta</label
+            ></span
+          >
+        </li>
+
+        <li>
+          <a class="brd-rd2" href="#" title="" itemprop="url"
+            >CONFIRMAR ORDEN</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

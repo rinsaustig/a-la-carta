@@ -1,0 +1,10 @@
+.delete {
+    cursor: pointer
+}
+
+.pay-method {
+    align-items: center;
+    justify-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}

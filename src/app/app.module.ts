@@ -15,7 +15,13 @@ import { OrderComponent } from './components/order/order.component';
 import { PreFooterComponent } from './components/pre-footer/pre-footer.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarouselModule } from './components/carousel/carousel.module';
-import { counterReducer } from 'src/app/components/carousel/store/carousel.reducer';
+import {
+  counterNotVegReducer,
+  counterTotalReducer,
+  counterVegReducer,
+} from 'src/app/components/carousel/store/carousel.reducer';
+import { AddedComponent } from './components/added/added.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +33,8 @@ import { counterReducer } from 'src/app/components/carousel/store/carousel.reduc
     OrderComponent,
     PreFooterComponent,
     FooterComponent,
+    AddedComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,11 @@ import { counterReducer } from 'src/app/components/carousel/store/carousel.reduc
     AppRoutingModule,
     RouterModule,
     CarouselModule,
-    StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forRoot({
+      count: counterTotalReducer,
+      countNotVeg: counterNotVegReducer,
+      countVeg: counterVegReducer,
+    }),
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

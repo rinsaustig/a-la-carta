@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <div class="sec-box">
+    <div class="col-md-9 col-sm-12 col-lg-9">
+      <div class="search-found">
+        <h3 itemprop="headline">
+          Busque su plato <span class="red-clr">Favorito! </span
+          ><span *ngIf="vegan"> y Vegano!</span>
+        </h3>
+        <p itemprop="description" *ngIf="!vegan">
+          Más de 40 años brindando un menú variado que alcanza los gustos de los
+          diferentes consumidores...
+        </p>
+        <form class="search-frm">
+          <input
+            type="text"
+            placeholder="Buscar plato"
+            (keyup)="onSearch($event)"
+          />
+          <button class="red-bg" (click)="submit()">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

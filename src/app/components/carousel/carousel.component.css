@@ -38,6 +38,20 @@
     gap: 2rem;
 }
 
+.carousel-arrow-container-veg {
+    position: absolute;
+    right: 25px;
+    left: 0;
+    bottom: 215px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0;
+    margin-bottom: 1 rem;
+    font-size: 3rem;
+    gap: 2rem;
+}
+
 .carousel-arrow-container i:hover {
     cursor: pointer;
     color: #fff;

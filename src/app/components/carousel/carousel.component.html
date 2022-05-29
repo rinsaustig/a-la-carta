@@ -1,5 +1,7 @@
 <div *ngIf="recipes && recipes.length > 0" class="carousel-container">
-  ============{{ countTotal$ | async }}====================
+  <div>
+    <h3 itemprop="headline">Platos agregados: {{ countTotal$ | async }}</h3>
+  </div>
   <div class="restaurant-detail-title">
     <h1 itemprop="headline">Menús</h1>
   </div>
@@ -10,14 +12,6 @@
     [ngClass]="{ 'image-active': selectedIndex === i }"
     class="fade-in-image"
   />
-  <div class="carousel-arrow-container">
-    <div class="carousel-arrow-left" (click)="prev()">
-      <i class="fas fa-chevron-left"></i>
-    </div>
-    <div class="carousel-arrow-right" (click)="next()">
-      <i class="fas fa-chevron-right"></i>
-    </div>
-  </div>
   <div class="restaurant-detail-wrapper">
     <div class="restaurant-detail-info">
       <div class="container-detail">
@@ -28,6 +22,14 @@
       </div>
       <div class="restaurant-detail-body">
         <a class="brd-rd3 a-button" (click)="addToOrder()">Agregar</a>
+        <div class="carousel-arrow-container">
+          <div class="carousel-arrow-left" (click)="prev()">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="carousel-arrow-right" (click)="next()">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -43,14 +45,6 @@
     [ngClass]="{ 'image-active': selectedIndexVeg === i }"
     class="fade-in-image"
   />
-  <div class="carousel-arrow-container">
-    <div class="carousel-arrow-left" (click)="preVeg()">
-      <i class="fas fa-chevron-left"></i>
-    </div>
-    <div class="carousel-arrow-right" (click)="nextVeg()">
-      <i class="fas fa-chevron-right"></i>
-    </div>
-  </div>
   <div class="container-detail">
     <h1 ng-model="selectedIndexVeg">
       {{ recipesVegan[selectedIndexVeg].title }}
@@ -61,5 +55,13 @@
   </div>
   <div class="restaurant-detail-body">
     <a class="brd-rd3 a-button" (click)="addToOrderVegan()">Agregar</a>
+    <div class="carousel-arrow-container-veg">
+      <div class="carousel-arrow-left" (click)="preVeg()">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="carousel-arrow-right" (click)="nextVeg()">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
   </div>
 </div>

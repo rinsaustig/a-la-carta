@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import swal from 'sweetalert';
 
 import { OrderModel } from 'src/app/models/order.model';
-import { addToOrder, increment } from './store/carousel.actions';
+import { incrementTotal } from './store/carousel.actions';
+import { OrdersStore, OrderState } from './store/carousel.store';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-carousel',
@@ -14,20 +16,29 @@ import { addToOrder, increment } from './store/carousel.actions';
 export class CarouselComponent implements OnInit {
   @Input() recipes: OrderModel[] = [];
   @Input() recipesVegan: OrderModel[] = [];
-  @Input() indicators = true;
-  @Output() order$: OrderModel[] = [];
   selectedIndex = 0;
   selectedIndexVeg = 0;
-  fullRecipes = true;
-  count = 0;
-  countVegan = 0;
+  count: number;
+  countVegan: number;
   countTotal$: Observable<number>;
+  added: OrderModel[];
 
-  constructor(private store: Store<{ count: number }>) {
+  constructor(
+    private store: Store<{
+      count: number;
+    }>,
+    private orderStore: OrdersStore
+  ) {
+    this.added = [];
+    this.count = 0;
+    this.countVegan = 0;
     this.countTotal$ = store.select('count');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipes = this.recipes.filter((d) => d.vegan === false);
+    console.log(this.recipes);
+  }
 
   prev() {
     if (this.selectedIndex > 0) {
@@ -60,16 +71,15 @@ export class CarouselComponent implements OnInit {
   }
 
   addToOrder() {
-    this.count++;
-    console.log(
-      'obser',
-      this.countTotal$.subscribe((res) => res < 5)
-    );
-    if (this.count < 3) {
-      // this.store.dispatch(increment());
-      this.store.dispatch(new addToOrder([this.recipes[this.selectedIndex]]));
-      // console.log('order', this.store.select('order'));
-    } else if (this.countTotal$.subscribe((res) => res < 5)) {
+    this.orderStore.state$.subscribe((res) => (this.count = res.countNotVeg));
+    console.log('notveg', this.count);
+    if (this.count < 2) {
+      this.orderStore.countNotVeg();
+      this.orderStore.addToOrder(this.recipes[this.selectedIndex]);
+      this.orderStore.state$.subscribe((res) => (this.added = res.orders));
+      this.store.dispatch(incrementTotal());
+      console.log(this.added);
+    } else if (this.added.length < 4) {
       swal({
         title: 'Incorrecto',
         text: 'Debes ingresar también 2 menús veganos',
@@ -79,19 +89,21 @@ export class CarouselComponent implements OnInit {
     } else {
       swal({
         title: 'Listo!',
-        text: 'Su orden está completa',
+        text: 'Su orden está completa, para agregar un plato elimine uno.',
         icon: 'success',
         dangerMode: false,
       });
     }
   }
   addToOrderVegan() {
-    this.countVegan++;
-    if (this.countVegan < 3) {
-      // this.store.dispatch(increment());
-      this.order$.push(this.recipesVegan[this.selectedIndexVeg]);
-      console.log('orderVeg', this.order$);
-    } else if (this.countTotal$.subscribe((res) => res < 5)) {
+    this.orderStore.state$.subscribe((res) => (this.countVegan = res.countVeg));
+    console.log('veg', this.countVegan);
+    if (this.countVegan < 2) {
+      this.orderStore.countVeg();
+      this.orderStore.addToOrder(this.recipesVegan[this.selectedIndexVeg]);
+      this.orderStore.state$.subscribe((res) => (this.added = res.orders));
+      this.store.dispatch(incrementTotal());
+    } else if (this.added.length < 4) {
       swal({
         title: 'Incorrecto',
         text: 'Debes ingresar también 2 menús no veganos',
@@ -101,7 +113,7 @@ export class CarouselComponent implements OnInit {
     } else {
       swal({
         title: 'Listo!',
-        text: 'Su orden está completa',
+        text: 'Su orden está completa, para agregar un plato elimine uno.',
         icon: 'success',
         dangerMode: false,
       });

@@ -29,12 +29,13 @@ export class OrderComponent implements OnInit {
     //   console.log('vegan', this.recipesVegan);
     //   this.getVeganImages();
     // });
-
-    this.recipes = Array.from(recipesJson);
-    this.recipesVegan = Array.from(recipesVeganJson);
+    // this.recipes = Array.from(recipesJson);
+    // this.recipesVegan = Array.from(recipesVeganJson);
+  }
+  getRecipes(recibed: OrderModel[]) {
+    this.recipes = recibed;
     console.log('recipes', this.recipes);
   }
-
   getImages() {
     this.recipes.map((res) => {
       this.images.push({
