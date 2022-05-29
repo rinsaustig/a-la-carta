@@ -12,7 +12,7 @@ export class AddedService {
     added.forEach((element) => {
       total += element.pricePerServing;
     });
-    return total;
+    return Math.ceil(total);
   }
 
   heathPoints(added: Array<OrderModel>) {

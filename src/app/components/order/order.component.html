@@ -18,7 +18,7 @@
                 (recipesVegan)="getRecipesVegan($event)"
               ></app-search>
               <div class="col-md-8 col-sm-12 col-lg-8">
-                <app-steps *ngIf="recipes.length == 0"></app-steps>
+                <app-steps *ngIf="recipesVegan.length == 0"></app-steps>
                 <app-carousel [recipesVegan]="recipesVegan"></app-carousel>
               </div>
               <div class="col-md-4 col-sm-12 col-lg-4">

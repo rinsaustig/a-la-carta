@@ -7,6 +7,7 @@ import { AddedService } from './added.service';
 import { Store } from '@ngrx/store';
 import { decrementTotal } from '../carousel/store/carousel.actions';
 import { catchError, concatMap, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-added',
@@ -18,6 +19,7 @@ export class AddedComponent implements OnInit {
   semiTotal: number;
   healthPoints: number;
   readyInMinutes: number;
+  linkedin = environment.linkedin;
   constructor(
     private addedService: AddedService,
     private ordersStore: OrdersStore,
